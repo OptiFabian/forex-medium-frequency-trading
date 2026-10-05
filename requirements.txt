@@ -1,0 +1,17 @@
+# Python 3.11 or 3.12. The canonical, fully pinned environment is uv.lock
+# (`uv sync`); this file is for plain pip users:
+#   python -m venv .venv
+#   .venv\Scripts\activate          (Windows)   or   source .venv/bin/activate
+#   pip install -r requirements.txt && pip install -e .
+
+# core
+numpy==2.4.6
+pandas==3.0.3
+pyarrow==24.0.0
+
+# XGBoost comparison and figures
+xgboost==3.4.0
+matplotlib==3.11.1
+
+# tests
+pytest==9.0.3

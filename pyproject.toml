@@ -1,0 +1,51 @@
+[project]
+name = "forex-medium-frequency-trading"
+version = "0.1.0"
+description = "Bollinger mean reversion vs XGBoost on 15-minute FX bars: an out-of-sample comparison with realistic costs."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "numpy>=2.0",
+    "pandas>=2.2",
+    "pyarrow>=15.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.5",
+    "mypy>=1.10",
+    "matplotlib>=3.11.1",
+    # Research tooling, like matplotlib: the ML phase needs a gradient booster.
+    # scikit-learn is deliberately NOT added -- AUC, permutation importance and
+    # calibration are implemented in fxalgo.models.metrics and unit-tested, which
+    # is a smaller surface than a second large dependency.
+    "xgboost>=2.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.17,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "fxalgo"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_ignores = true
+warn_return_any = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -q"

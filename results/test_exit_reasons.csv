@@ -1,0 +1,6 @@
+method,exit_reason,trades,mean_net_bps,mean_bars
+bollinger[D k=2.0 rsi=30/70],signal,736,2.122,15.834
+xgboost[theta=0.1],intrabar_sl,730,-14.518,5.905
+xgboost[theta=0.1],intrabar_tp,653,12.63,6.56
+xgboost[theta=0.1],signal,268,-0.362,16.0
+xgboost[theta=0.1],time_exit,125,-1.971,16.0
